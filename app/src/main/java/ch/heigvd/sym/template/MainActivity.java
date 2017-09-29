@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     // GUI elements
 	private EditText email      = null;
+	private EditText password      = null;
     private Button   signIn     = null;
 
 	@Override
@@ -56,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(R.layout.authent);
 
 		// Link to GUI elements
-        this.email      = (EditText) findViewById(R.id.email);
+		this.email      = (EditText) findViewById(R.id.email);
+		this.password      = (EditText) findViewById(R.id.password);
         this.signIn     = (Button)   findViewById(R.id.buttOk);
 
 		// Then program action associated to "Ok" button
@@ -69,8 +71,12 @@ public class MainActivity extends AppCompatActivity {
 				 * combination given is valid or not
 				 */
 				String mail = email.getText().toString();
-				String passwd = null; //TODO read password from EditText
-				if (isValid(mail, passwd)) {
+				String passwd = password.getText().toString();
+
+				if (!mail.contains("@")){
+					Toast.makeText(MainActivity.this, getResources().getString(R.string.wrongEmail), Toast.LENGTH_LONG).show();
+				}
+				else if (isValid(mail, passwd)) {
 					/* Ok, valid combination, do something or launch another activity...
 					 * The current activity could be finished, but it is not mandatory.
 					 * To launch activity MyActivity.class, try something like :
