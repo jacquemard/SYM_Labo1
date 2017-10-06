@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 		return users.contains(new Pair(mail,passwd));
 	}
 	
-	protected void showErrorDialog(String mail, String passwd) {
+	protected void showErrorDialog(String mail, final String passwd) {
 		/*
 		 * Pop-up dialog to show error
 		 */
@@ -134,8 +134,9 @@ public class MainActivity extends AppCompatActivity {
 		alertbd.setTitle(R.string.wronglogin);
 	    alertbd.setMessage(R.string.wrong);
 	    alertbd.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-	        public void onClick(DialogInterface dialog, int which) { 
-	            // we do nothing...
+	        public void onClick(DialogInterface dialog, int which) {
+				email.setText("");
+				password.setText("");
                 // dialog close automatically
 	        }
 	     });
