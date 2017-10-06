@@ -93,7 +93,10 @@ public class MainActivity extends AppCompatActivity {
 					 * If you haven't anything more to do, you may finish()...
 					 * But just display a small message before quitting...
 					 */
-
+					Intent intent = new Intent(MainActivity.this, ch.heigvd.sym.lab1.ValidLoginActivity.class);
+					intent.putExtra("emailEntered", mail);
+					intent.putExtra("passwordGiven", passwd);
+					MainActivity.this.startActivity(intent);
 
 					Toast.makeText(MainActivity.this, getResources().getString(R.string.good), Toast.LENGTH_LONG).show();
 					finish();
@@ -102,10 +105,10 @@ public class MainActivity extends AppCompatActivity {
 					showErrorDialog(mail, passwd);
 				}
 			}
-			
+
 		});
 	}
-	
+
 	private boolean isValid(String mail, String passwd) {
         if(mail == null || passwd == null) {
             Log.w(TAG, "isValid(mail, passwd) - mail and passwd cannot be null !");
@@ -114,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
 		// Return true if combination valid, false otherwise
 		return (mail.equals(validEmail) && passwd.equals(validPassword));
 	}
-	
+
 	protected void showErrorDialog(String mail, String passwd) {
 		/*
 		 * Pop-up dialog to show error
