@@ -31,20 +31,30 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.Pair;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 public class MainActivity extends AppCompatActivity {
 
     // For logging purposes
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    // Just for test purposes : please destroy !
-	private static final String validEmail      = "toto@tutu.com";
-	private static final String validPassword   = "tata";
+
+	private static final ArrayList<Pair<String,String>> users = new ArrayList<Pair<String,String>>() {{
+		add(new Pair("a@b.com","c"));
+		add(new Pair("toto@tutu.com","tata"));
+		add(new Pair("aaa@bbb.com","ccc"));
+	}};
+
+
+//	users.add(user1);
 
     // GUI elements
 	private EditText email      = null;
@@ -112,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
 		// Return true if combination valid, false otherwise
-		return (mail.equals(validEmail) && passwd.equals(validPassword));
+		return users.contains(new Pair(mail,passwd));
 	}
 	
 	protected void showErrorDialog(String mail, String passwd) {
