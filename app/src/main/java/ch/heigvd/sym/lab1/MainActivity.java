@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
 					Intent intent = new Intent(MainActivity.this, ch.heigvd.sym.lab1.ValidLoginActivity.class);
 					intent.putExtra("emailEntered", mail);
-					intent.putExtra("passwordGiven", passwd);
+					//intent.putExtra("passwordGiven", passwd);
 					MainActivity.this.startActivity(intent);
 
 					Toast.makeText(MainActivity.this, getResources().getString(R.string.good), Toast.LENGTH_LONG).show();
