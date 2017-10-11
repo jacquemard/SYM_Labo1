@@ -26,9 +26,11 @@ public class ValidLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_valid_login);
 
         //Linking GUI components
+
         this.photo = (ImageView) this.findViewById(R.id.photo);
         this.mail = (TextView) this.findViewById(R.id.mail);
         this.imei = (TextView) this.findViewById(R.id.imei);
+
 
         //Photo
         File photoFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath() + File.separator + "perso.jpg");
@@ -37,15 +39,15 @@ public class ValidLoginActivity extends AppCompatActivity {
             Bitmap myBitmap = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
 
             photo.setImageBitmap(myBitmap);
-
         }
 
         //email
-        this.mail.setText(getIntent().getStringExtra("emailEntered"));
+        this.mail.setText("email : " + getIntent().getStringExtra("emailEntered"));
 
         //EMEI
         TelephonyManager manager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        this.imei.setText(manager.getImei());
+
+        this.imei.setText("imei : " + manager.getDeviceId());
 
     }
 

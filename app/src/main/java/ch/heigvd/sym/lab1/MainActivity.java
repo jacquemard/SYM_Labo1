@@ -53,12 +53,9 @@ public class MainActivity extends AppCompatActivity {
 		add(new Pair("aaa@bbb.com","ccc"));
 	}};
 
-
-//	users.add(user1);
-
     // GUI elements
 	private EditText email      = null;
-	private EditText password      = null;
+	private EditText password   = null;
     private Button   signIn     = null;
 
 	@Override

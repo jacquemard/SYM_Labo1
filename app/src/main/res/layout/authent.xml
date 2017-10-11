@@ -21,7 +21,6 @@
         android:hint="@string/psw"
         android:inputType="textPassword">
 
-        <requestFocus />
     </EditText>
 
     <Button
