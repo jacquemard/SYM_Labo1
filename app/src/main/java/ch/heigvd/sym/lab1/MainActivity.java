@@ -115,6 +115,8 @@ public class MainActivity extends AppCompatActivity {
 					MainActivity.this.startActivityForResult(intent, IMEI_REQUEST);
 
 					Toast.makeText(MainActivity.this, getResources().getString(R.string.good), Toast.LENGTH_LONG).show();
+
+					//finish();
 				} else {
 					// Wrong combination, display pop-up dialog and stay on login screen
 					showErrorDialog(mail, passwd);
