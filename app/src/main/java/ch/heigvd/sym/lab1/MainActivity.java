@@ -28,6 +28,7 @@ package ch.heigvd.sym.lab1;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -103,11 +104,11 @@ public class MainActivity extends AppCompatActivity {
 
 					Intent intent = new Intent(MainActivity.this, ch.heigvd.sym.lab1.ValidLoginActivity.class);
 					intent.putExtra("emailEntered", mail);
+					intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 					//intent.putExtra("passwordGiven", passwd);
-					MainActivity.this.startActivity(intent);
+					MainActivity.this.startActivityForResult(intent, 1);
 
 					Toast.makeText(MainActivity.this, getResources().getString(R.string.good), Toast.LENGTH_LONG).show();
-					finish();
 				} else {
 					// Wrong combination, display pop-up dialog and stay on login screen
 					showErrorDialog(mail, passwd);
