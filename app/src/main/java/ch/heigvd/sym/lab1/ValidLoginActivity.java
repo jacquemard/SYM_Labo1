@@ -1,3 +1,14 @@
+/**
+ * File     : ValidLoginActivity.java
+ * Project  : SYM - Labo 1
+ * Date     : 12.10.2017
+ * Author   :
+ * 		 Rémi Jacquemard
+ *       Edward Ransome
+ *       Michael Spierer
+ *
+ */
+
 package ch.heigvd.sym.lab1;
 
 import android.app.Activity;
@@ -5,17 +16,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.File;
-
-import ch.heigvd.sym.lab1.R;
 
 public class ValidLoginActivity extends AppCompatActivity {
 
