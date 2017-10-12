@@ -106,7 +106,10 @@ public class MainActivity extends AppCompatActivity {
 					intent.putExtra("emailEntered", mail);
 					intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 					//intent.putExtra("passwordGiven", passwd);
-					MainActivity.this.startActivityForResult(intent, 1);
+					MainActivity.this.startActivity(intent);
+
+					// If we want to get a result from the activity :
+					// MainActivity.this.startActivityForResult(intent, 1);
 
 					Toast.makeText(MainActivity.this, getResources().getString(R.string.good), Toast.LENGTH_LONG).show();
 				} else {
