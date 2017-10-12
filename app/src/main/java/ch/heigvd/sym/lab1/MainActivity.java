@@ -25,6 +25,7 @@
  */
 package ch.heigvd.sym.lab1;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -53,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
 		add(new Pair("toto@tutu.com","tata"));
 		add(new Pair("aaa@bbb.com","ccc"));
 	}};
+
+	private static final int IMEI_REQUEST = 1;
 
     // GUI elements
 	private EditText email      = null;
@@ -106,10 +109,10 @@ public class MainActivity extends AppCompatActivity {
 					intent.putExtra("emailEntered", mail);
 					intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 					//intent.putExtra("passwordGiven", passwd);
-					MainActivity.this.startActivity(intent);
+					//MainActivity.this.startActivity(intent);
 
 					// If we want to get a result from the activity :
-					// MainActivity.this.startActivityForResult(intent, 1);
+					MainActivity.this.startActivityForResult(intent, IMEI_REQUEST);
 
 					Toast.makeText(MainActivity.this, getResources().getString(R.string.good), Toast.LENGTH_LONG).show();
 				} else {
@@ -147,5 +150,18 @@ public class MainActivity extends AppCompatActivity {
 	     });
 	    alertbd.create().show();
 	}
-	
+
+	// For test purpose
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+		if (requestCode == IMEI_REQUEST) {
+			if(resultCode == Activity.RESULT_OK){
+				String result=data.getStringExtra("imei");
+
+				Toast.makeText(MainActivity.this, "imei : " + result, Toast.LENGTH_LONG).show();
+			}
+		}
+
+	}
 }

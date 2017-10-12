@@ -1,6 +1,8 @@
 package ch.heigvd.sym.lab1;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
@@ -44,12 +46,16 @@ public class ValidLoginActivity extends AppCompatActivity {
         //email
         this.mail.setText("email : " + getIntent().getStringExtra("emailEntered"));
 
-        //EMEI
+        //IMEI
         TelephonyManager manager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-
         this.imei.setText("imei : " + manager.getDeviceId());
 
+        // We will return the imei value to the first activity
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("imei", manager.getDeviceId());
+        this.setResult(Activity.RESULT_OK,resultIntent);
     }
+
 
 
 }
